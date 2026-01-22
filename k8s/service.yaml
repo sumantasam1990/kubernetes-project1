@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: todo-service
+  namespace: todo-app
+spec:
+  type: LoadBalancer # Use NodePort if LoadBalancer is not supported locally (e.g. Minikube without tunnel)
+  selector:
+    app: todo-api
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000
