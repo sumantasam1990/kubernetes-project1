@@ -46,3 +46,10 @@ This project contains a production-grade FastAPI application containerized with 
 ## Troubleshooting
 - **Logs:** `kubectl logs -l app=todo-api -n todo-app`
 - **Describe Pod:** `kubectl describe pod <pod-name> -n todo-app`
+
+## For BG Run
+nohup kubectl port-forward svc/todo-service 8080:80 -n todo-app > pf.log 2>&1 &
+
+## To Stop BG Run
+ps aux | grep "kubectl port-forward"
+kill <PID>
